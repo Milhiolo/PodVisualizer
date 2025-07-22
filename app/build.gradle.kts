@@ -13,7 +13,7 @@ plugins {
     application
 }
 
-group = "com.seuprojeto" // Substitua pelo seu grupo/pacote (ex: com.podvisualizer)
+group = "io.github.milhiolo" // Substituído pelo seu grupo/pacote
 version = "1.0-SNAPSHOT" // Versão do seu aplicativo
 
 // Define a versão da JVM que seu projeto usará para compilação e execução
@@ -32,20 +32,15 @@ repositories {
 dependencies {
     // Dependências do Kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect") // Essencial para Spring Boot com Kotlin
-    // Removido: implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8") - Não é necessário para Java 21
 
     // Dependência do Spring Boot para criar a API Web (servidor embarcado, REST Controllers)
     implementation("org.springframework.boot:spring-boot-starter-web")
     
     // Se você for manipular XML/JSON diretamente, adicione Jackson (já vem com spring-boot-starter-web, mas bom saber)
-    // implementation("com.fasterxml.jackson.module:jackson-module-kotlin") 
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Adicionado para suporte a Kotlin com Jackson
 
-    // **Suas dependências para ProjectLibre e MXJP**
-    // ESTAS SÃO EXEMPLOS. VOCÊ PRECISA ENCONTRAR AS COORDENADAS MAJESTICAS CORRETAS.
-    // Pesquise por "ProjectLibre Maven dependency" e "MXJP Maven dependency".
-    // Ex:
-    // implementation("org.projectlibre:projectlibre-core:X.Y.Z") // Substitua X.Y.Z pela versão correta
-    // implementation("com.mycompany:mxjp:A.B.C") // Substitua A.B.C pela versão correta, e groupId/artifactId
+    // Dependência MPXJ para ler arquivos .pod
+    implementation("net.sf.mpxj:mpxj:12.1.2") // Versão mais recente estável do MPXJ
 
     // Dependências de teste (JUnit Jupiter é o padrão para Spring Boot com Kotlin)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -57,7 +52,7 @@ dependencies {
 // Configuração do plugin 'application' (para `gradle run`)
 application {
     // Sua classe principal que inicia o Spring Boot
-    mainClass.set("com.seuprojeto.podvisualizer.PodVisualizerApplicationKt") // Se for Kotlin, geralmente termina com "Kt"
+    mainClass.set("io.github.milhiolo.podvisualizer.PodVisualizerApplication") // Aponta para a classe Java principal
 }
 
 // Configuração para testes com JUnit Platform (JUnit 5)
@@ -69,7 +64,7 @@ tasks.test {
 // Isso criará um JAR único que inclui todas as dependências e pode ser executado.
 tasks.bootJar { // Note o 'tasks.' aqui
     archiveFileName.set("pod-visualizer.jar") // Nome do arquivo JAR final
-    mainClass.set("com.seuprojeto.podvisualizer.PodVisualizerApplicationKt") // Sua classe principal para o JAR executável
+    mainClass.set("io.github.milhiolo.podvisualizer.PodVisualizerApplication") // Sua classe principal para o JAR executável
 }
 
 // Opcional: Tarefa para compilar o Kotlin e o Java

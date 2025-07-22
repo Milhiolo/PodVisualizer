@@ -1,0 +1,18 @@
+# Configurações do Servidor
+server:
+  port: 8080 # Define a porta em que a aplicação Spring Boot será executada
+
+# Configurações de Logging
+logging:
+  level:
+    root: INFO # Define o nível de log padrão para INFO
+    org.springframework: INFO # Nível de log para pacotes Spring
+    io.github.milhiolo.podvisualizer: DEBUG # Nível de log para o seu pacote de aplicação, útil para depuração
+
+# Configurações do Spring (exemplo, adicione mais conforme necessário)
+spring:
+  application:
+    name: PodVisualizer # Nome da sua aplicação
+  # multipart: # Configurações para upload de arquivos (se precisar ajustar limites de tamanho)
+  #   max-file-size: 10MB
+  #   max-request-size: 10MB
