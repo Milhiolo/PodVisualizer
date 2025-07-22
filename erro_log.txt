@@ -1,0 +1,45 @@
+Starting a Gradle Daemon, 1 incompatible and 2 stopped Daemons could not be reused, use --status for details
+Calculating task graph as no cached configuration is available for tasks:
+
+> Configure project :app
+The StartParameter.isConfigurationCacheRequested property has been deprecated. This is scheduled to be removed in Gradle 10.0. Please use 'configurationCache.requested' property on 'BuildFeatures' service instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.14.2/userguide/upgrading_version_8.html#deprecated_startparameter_is_configuration_cache_requested
+e: file:///C:/Users/030094119/Documents/Java%20APPS/PodVisualizer/app/build.gradle.kts:70:1: Expression 'bootJar' cannot be invoked as a function. The function 'invoke()' is not found
+e: file:///C:/Users/030094119/Documents/Java%20APPS/PodVisualizer/app/build.gradle.kts:70:1: Unresolved reference. None of the following candidates is applicable because 
+of receiver type mismatch:
+public val TaskContainer.bootJar: TaskProvider<BootJar> defined in org.gradle.kotlin.dsl
+e: file:///C:/Users/030094119/Documents/Java%20APPS/PodVisualizer/app/build.gradle.kts:71:5: Unresolved reference: archiveFileName
+e: file:///C:/Users/030094119/Documents/Java%20APPS/PodVisualizer/app/build.gradle.kts:72:5: Unresolved reference: mainClass
+
+[Incubating] Problems report is available at: file:///C:/Users/030094119/Documents/Java%20APPS/PodVisualizer/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\030094119\Documents\Java APPS\PodVisualizer\app\build.gradle.kts' line: 70
+
+* What went wrong:
+Script compilation errors:
+
+  Line 70: bootJar {
+           ^ Expression 'bootJar' cannot be invoked as a function. The function 'invoke()' is not found
+
+  Line 70: bootJar {
+           ^ Unresolved reference. None of the following candidates is applicable because of receiver type mismatch:
+               public val TaskContainer.bootJar: TaskProvider<BootJar> defined in org.gradle.kotlin.dsl
+
+  Line 71:     archiveFileName.set("pod-visualizer.jar")
+               ^ Unresolved reference: archiveFileName
+
+  Line 72:     mainClass.set("com.seuprojeto.podvisualizer.PodVisualizerApplicationKt")
+               ^ Unresolved reference: mainClass
+
+4 errors
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 13s
+Configuration cache entry stored.
